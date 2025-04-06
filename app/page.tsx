@@ -203,9 +203,12 @@ export default function Home() {
                         development and server-side technologies.
                      </p>
                      <p className='text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed dark:text-shadow'>
-                        My journey in tech started with a passion for building
-                        robust, scalable backend systems. I've developed skills
-                        in Node.js, Express, MongoDB, and RESTful API design.
+                        While I specialize in Node.js, Express, MongoDB, and
+                        RESTful API design, my strong foundation in backend
+                        development enables me to quickly learn and adapt to any
+                        programming language or framework required for the
+                        project. For me, the language is simply a tool to
+                        deliver robust, scalable solutions.
                      </p>
                      <p className='text-gray-600 dark:text-gray-300 text-lg leading-relaxed dark:text-shadow'>
                         When I'm not coding, you can find me exploring new
