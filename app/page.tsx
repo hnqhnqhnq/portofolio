@@ -22,6 +22,7 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
 export default function Home() {
+   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
    const [activeProject, setActiveProject] = useState<number | null>(null);
    const projectRefs = [
       useRef<HTMLDivElement>(null),
@@ -56,7 +57,7 @@ export default function Home() {
          {/* Hero Section */}
          <section
             id='home'
-            className='relative min-h-screen flex flex-col items-center justify-center px-6 md:px-8'
+            className='relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 md:px-8'
          >
             <div className='absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-[#0f172a] dark:to-[#020617] z-0' />
 
@@ -469,7 +470,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 0
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 0
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
@@ -486,7 +489,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 0
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 0
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
@@ -503,7 +508,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 0
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 0
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
@@ -520,7 +527,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 0
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 0
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
@@ -600,7 +609,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 1
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 1
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
@@ -617,7 +628,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 1
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 1
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
@@ -633,7 +646,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 1
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 1
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
@@ -650,7 +665,9 @@ export default function Home() {
                                  className='flex items-start'
                                  initial={{ opacity: 0, x: -10 }}
                                  animate={
-                                    activeProject === 1
+                                    isMobile
+                                       ? { opacity: 1, x: 0 }
+                                       : activeProject === 1
                                        ? { opacity: 1, x: 0 }
                                        : {}
                                  }
