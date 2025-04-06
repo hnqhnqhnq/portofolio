@@ -210,10 +210,6 @@ export default function Home() {
                         project. For me, the language is simply a tool to
                         deliver robust, scalable solutions.
                      </p>
-                     <p className='text-gray-600 dark:text-gray-300 text-lg leading-relaxed dark:text-shadow'>
-                        When I'm not coding, you can find me exploring new
-                        backend technologies and participating in hackathons.
-                     </p>
                   </motion.div>
                   <motion.div
                      initial={{ opacity: 0, x: 30 }}
