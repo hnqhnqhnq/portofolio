@@ -163,7 +163,7 @@ export default function Home() {
                </div>
             </div>
 
-            <motion.div
+            {/* <motion.div
                className='absolute bottom-10 left-0 right-0 flex justify-center'
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
@@ -172,7 +172,7 @@ export default function Home() {
                <div className='animate-bounce'>
                   <ArrowRight className='h-6 w-6 rotate-90 text-gray-400' />
                </div>
-            </motion.div>
+            </motion.div> */}
          </section>
 
          {/* About Section */}
