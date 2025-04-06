@@ -884,6 +884,14 @@ export default function Home() {
                                  whileTap={{ scale: 0.95 }}
                               >
                                  <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
+                                    Django
+                                 </Badge>
+                              </motion.div>
+                              <motion.div
+                                 whileHover={{ scale: 1.1 }}
+                                 whileTap={{ scale: 0.95 }}
+                              >
+                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
                                     REST APIs
                                  </Badge>
                               </motion.div>
@@ -964,7 +972,7 @@ export default function Home() {
                                  whileTap={{ scale: 0.95 }}
                               >
                                  <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
-                                    VS Code
+                                    Firebase
                                  </Badge>
                               </motion.div>
                               <motion.div
