@@ -683,7 +683,7 @@ export default function Home() {
                               }}
                               transition={{ duration: 0.5 }}
                            >
-                              <Card className='border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
+                              <Card className='border-0 rounded-2xl overflow-hidden dark:bg-[#0f172a]'>
                                  <CardHeader className='pb-2'>
                                     <CardTitle className='text-xl font-medium'>
                                        {reviews[currentReview].name}
