@@ -9,6 +9,9 @@ import {
    MapPin,
    ArrowRight,
    Linkedin,
+   Star,
+   ChevronLeft,
+   ChevronRight,
 } from "lucide-react";
 import {
    Card,
@@ -16,26 +19,62 @@ import {
    CardDescription,
    CardHeader,
    CardTitle,
+   CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState, useEffect } from "react";
+import { useMobile } from "@/hooks/use-mobile";
+
+type Review = {
+   id: number;
+   name: string;
+   company: string;
+   content: string;
+   rating: number;
+};
 
 export default function Home() {
-   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-   const [activeProject, setActiveProject] = useState<number | null>(null);
-   const projectRefs = [
-      useRef<HTMLDivElement>(null),
-      useRef<HTMLDivElement>(null),
-   ];
+   const isMobile = useMobile();
+   const [reviews, setReviews] = useState<Review[]>([]);
+   const [currentReview, setCurrentReview] = useState(0);
+   const [slideDirection, setSlideDirection] = useState("right");
 
-   const handleProjectHover = (index: number) => {
-      setActiveProject(index);
+   const handleReviewChange = (direction: "next" | "prev") => {
+      if (reviews.length <= 1) return;
+
+      setSlideDirection(direction === "next" ? "right" : "left");
+
+      if (direction === "next") {
+         setCurrentReview((prev) => (prev + 1) % reviews.length);
+      } else {
+         setCurrentReview(
+            (prev) => (prev - 1 + reviews.length) % reviews.length
+         );
+      }
    };
 
-   const handleProjectLeave = () => {
-      setActiveProject(null);
-   };
+   useEffect(() => {
+      const reviewsData = [
+         {
+            id: 1,
+            name: "Hm Ryan",
+            company: "No Company",
+            content:
+               "I would like to extend my heartfelt thanks to Stefan for his invaluable help with my son's computer science project. He was exceptionally friendly, responded incredibly quickly, and generously dedicated a great deal of his time. His support made a real difference and is truly appreciated.",
+            rating: 5,
+         },
+      ];
+
+      setReviews(reviewsData);
+   }, []);
+
+   // Reset current review index when reviews change
+   useEffect(() => {
+      if (reviews.length > 0 && currentReview >= reviews.length) {
+         setCurrentReview(0);
+      }
+   }, [reviews, currentReview]);
 
    const container = {
       hidden: { opacity: 0 },
@@ -57,7 +96,7 @@ export default function Home() {
          {/* Hero Section */}
          <section
             id='home'
-            className='relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 md:px-8'
+            className='relative min-h-screen flex flex-col items-center justify-center px-6 md:px-8 pt-20 md:pt-0'
          >
             <div className='absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-[#0f172a] dark:to-[#020617] z-0' />
 
@@ -116,16 +155,16 @@ export default function Home() {
                            className='inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 h-10 px-6 py-2 dark:button-glow'
                            onClick={() =>
                               document
-                                 .getElementById("projects")
+                                 .getElementById("skills")
                                  ?.scrollIntoView({ behavior: "smooth" })
                            }
                            whileHover={{ scale: 1.05 }}
                            whileTap={{ scale: 0.95 }}
                         >
-                           View Projects
+                           View Skills
                         </motion.button>
                         <motion.a
-                           href='/Hincu-Stefan-Resume.pdf'
+                           href='/resume.pdf'
                            download
                            className='inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-black dark:border-white text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-900 h-10 px-6 py-2'
                            whileHover={{ scale: 1.05 }}
@@ -162,17 +201,6 @@ export default function Home() {
                   </motion.div>
                </div>
             </div>
-
-            {/* <motion.div
-               className='absolute bottom-10 left-0 right-0 flex justify-center'
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ duration: 0.5, delay: 1 }}
-            >
-               <div className='animate-bounce'>
-                  <ArrowRight className='h-6 w-6 rotate-90 text-gray-400' />
-               </div>
-            </motion.div> */}
          </section>
 
          {/* About Section */}
@@ -203,12 +231,13 @@ export default function Home() {
                         development and server-side technologies.
                      </p>
                      <p className='text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed dark:text-shadow'>
-                        While I specialize in Node.js, Express, MongoDB, and
-                        RESTful API design, my strong foundation in backend
-                        development enables me to quickly learn and adapt to any
-                        programming language or framework required for the
-                        project. For me, the language is simply a tool to
-                        deliver robust, scalable solutions.
+                        My journey in tech started with a passion for building
+                        robust, scalable backend systems. I've developed skills
+                        in Node.js, Express, MongoDB, and RESTful API design.
+                     </p>
+                     <p className='text-gray-600 dark:text-gray-300 text-lg leading-relaxed dark:text-shadow'>
+                        When I'm not coding, you can find me exploring new
+                        backend technologies and participating in hackathons.
                      </p>
                   </motion.div>
                   <motion.div
@@ -422,372 +451,6 @@ export default function Home() {
             </div>
          </section>
 
-         {/* Projects Section */}
-         <section
-            id='projects'
-            className='py-24 bg-gray-50 dark:bg-[#111827] reveal'
-         >
-            <div className='container max-w-6xl mx-auto px-6 md:px-8'>
-               <motion.h2
-                  className='text-3xl font-bold mb-16 text-center gradient-text'
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-               >
-                  Projects
-               </motion.h2>
-               <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-                  <motion.div
-                     ref={projectRefs[0]}
-                     initial={{ opacity: 0, y: 30 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ duration: 0.5, delay: 0.2 }}
-                     onHoverStart={() => handleProjectHover(0)}
-                     onHoverEnd={handleProjectLeave}
-                  >
-                     <Card className='h-full border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
-                        <CardHeader className='pb-2'>
-                           <CardTitle className='text-xl font-medium'>
-                              Habit Tracker
-                           </CardTitle>
-                           <CardDescription>
-                              Cross-Platform Mobile Application
-                           </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                           <p className='text-gray-600 dark:text-gray-300 mb-6 text-lg'>
-                              <span className='font-semibold'>
-                                 Led the backend development
-                              </span>{" "}
-                              of a mobile application to help users track and
-                              improve their daily habits.
-                           </p>
-                           <ul className='space-y-3 text-gray-600 dark:text-gray-300 mb-6'>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 0
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.1 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Built habit creation, update and delete
-                                    features, simplifying habit tracking for
-                                    users.
-                                 </span>
-                              </motion.li>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 0
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.2 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Used Moment.js to automate daily stats and
-                                    streaks, giving users instant feedback and
-                                    motivation.
-                                 </span>
-                              </motion.li>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 0
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.3 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Integrated JWT for secure logins, ensuring
-                                    smooth and protected multi-device access for
-                                    users.
-                                 </span>
-                              </motion.li>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 0
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.4 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Deployed the REST API on Firebase for
-                                    scalable performance, providing user data
-                                    protection and smooth operation as the app
-                                    grows.
-                                 </span>
-                              </motion.li>
-                           </ul>
-                           <div className='flex flex-wrap gap-2 mt-4'>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 Node.js
-                              </Badge>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 Express.js
-                              </Badge>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 MongoDB
-                              </Badge>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 Firebase
-                              </Badge>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 Git
-                              </Badge>
-                           </div>
-                        </CardContent>
-                     </Card>
-                  </motion.div>
-
-                  <motion.div
-                     ref={projectRefs[1]}
-                     initial={{ opacity: 0, y: 30 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ duration: 0.5, delay: 0.4 }}
-                     onHoverStart={() => handleProjectHover(1)}
-                     onHoverEnd={handleProjectLeave}
-                  >
-                     <Card className='h-full border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
-                        <CardHeader className='pb-2'>
-                           <CardTitle className='text-xl font-medium'>
-                              Find Your Lost Pet
-                           </CardTitle>
-                           <CardDescription>Web Application</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                           <p className='text-gray-600 dark:text-gray-300 mb-6 text-lg'>
-                              <span className='font-semibold'>
-                                 Led the backend development
-                              </span>{" "}
-                              of a web application to help users find their lost
-                              pets by creating posts and messaging other users.
-                           </p>
-                           <ul className='space-y-3 text-gray-600 dark:text-gray-300 mb-6'>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 1
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.1 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Developed CRUD operations for posts and
-                                    comments, enabling users to share
-                                    information quickly.
-                                 </span>
-                              </motion.li>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 1
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.2 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Implemented a messaging system, allowing
-                                    users to easily communicate about lost pets.
-                                 </span>
-                              </motion.li>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 1
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.3 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Integrated email-based password recovery
-                                    with token validation, giving users a secure
-                                    and efficient way to reset passwords.
-                                 </span>
-                              </motion.li>
-                              <motion.li
-                                 className='flex items-start'
-                                 initial={{ opacity: 0, x: -10 }}
-                                 animate={
-                                    isMobile
-                                       ? { opacity: 1, x: 0 }
-                                       : activeProject === 1
-                                       ? { opacity: 1, x: 0 }
-                                       : {}
-                                 }
-                                 transition={{ duration: 0.3, delay: 0.4 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Learned to implement JWT for secure login
-                                    and used npm packages like Helmet,
-                                    express-rate-limit and xss-clean to protect
-                                    users and enhance app security.
-                                 </span>
-                              </motion.li>
-                           </ul>
-                           <div className='flex flex-wrap gap-2 mt-4'>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 Node.js
-                              </Badge>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 Express.js
-                              </Badge>
-                              <Badge
-                                 variant='outline'
-                                 className='border-gray-300 dark:border-gray-600 rounded-full px-3 py-0.5 dark:text-gray-300'
-                              >
-                                 MongoDB
-                              </Badge>
-                           </div>
-                        </CardContent>
-                     </Card>
-                  </motion.div>
-               </div>
-            </div>
-         </section>
-
-         {/* Hackathons Section */}
-         <section id='hackathons' className='py-24 dark:bg-[#0f172a] reveal'>
-            <div className='container max-w-6xl mx-auto px-6 md:px-8'>
-               <motion.h2
-                  className='text-3xl font-bold mb-16 text-center gradient-text'
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-               >
-                  Hackathons
-               </motion.h2>
-               <div className='max-w-3xl mx-auto'>
-                  <motion.div
-                     initial={{ opacity: 0, y: 30 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ duration: 0.5, delay: 0.2 }}
-                     whileHover={{ scale: 1.02 }}
-                  >
-                     <Card className='border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
-                        <CardHeader>
-                           <div className='flex justify-between items-start'>
-                              <div>
-                                 <CardTitle className='text-xl font-medium'>
-                                    DevHacks
-                                 </CardTitle>
-                                 <CardDescription>1st Place</CardDescription>
-                              </div>
-                              <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-4 py-1 dark:badge-glow'>
-                                 Nov 2022
-                              </Badge>
-                           </div>
-                        </CardHeader>
-                        <CardContent>
-                           <p className='text-gray-600 dark:text-gray-300 mb-6 text-lg dark:text-shadow'>
-                              Developed Office Room, a team management app,
-                              within 24 hours, using HTML, CSS and Django for
-                              fast development.
-                           </p>
-                           <ul className='space-y-3 text-gray-600 dark:text-gray-300'>
-                              <motion.li
-                                 className='flex items-start'
-                                 whileHover={{ x: 5 }}
-                                 transition={{
-                                    type: "spring",
-                                    stiffness: 400,
-                                    damping: 10,
-                                 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Users can create activities and earn points
-                                    for attending in-person, encouraging on-site
-                                    work.
-                                 </span>
-                              </motion.li>
-                              <motion.li
-                                 className='flex items-start'
-                                 whileHover={{ x: 5 }}
-                                 transition={{
-                                    type: "spring",
-                                    stiffness: 400,
-                                    damping: 10,
-                                 }}
-                              >
-                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mt-2 mr-2 flex-shrink-0'></span>
-                                 <span>
-                                    Learned Git and strengthened teamwork skills
-                                    through collaborative project development.
-                                 </span>
-                              </motion.li>
-                           </ul>
-                        </CardContent>
-                     </Card>
-                  </motion.div>
-               </div>
-            </div>
-         </section>
-
          {/* Skills Section */}
          <section
             id='skills'
@@ -884,14 +547,6 @@ export default function Home() {
                                  whileTap={{ scale: 0.95 }}
                               >
                                  <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
-                                    Django
-                                 </Badge>
-                              </motion.div>
-                              <motion.div
-                                 whileHover={{ scale: 1.1 }}
-                                 whileTap={{ scale: 0.95 }}
-                              >
-                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
                                     REST APIs
                                  </Badge>
                               </motion.div>
@@ -972,7 +627,7 @@ export default function Home() {
                                  whileTap={{ scale: 0.95 }}
                               >
                                  <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
-                                    Firebase
+                                    VS Code
                                  </Badge>
                               </motion.div>
                               <motion.div
@@ -991,8 +646,111 @@ export default function Home() {
             </div>
          </section>
 
+         {/* Reviews Section */}
+         <section id='reviews' className='py-24 dark:bg-[#0f172a] reveal'>
+            <div className='container max-w-6xl mx-auto px-6 md:px-8'>
+               <motion.h2
+                  className='text-3xl font-bold mb-16 text-center gradient-text'
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+               >
+                  Reviews from Clients
+               </motion.h2>
+
+               {reviews.length > 0 ? (
+                  <div className='max-w-3xl mx-auto'>
+                     <div className='relative'>
+                        {/* Review counter */}
+                        <div className='absolute -top-10 right-0 text-sm text-gray-500 dark:text-gray-400'>
+                           {currentReview + 1} of {reviews.length}
+                        </div>
+
+                        {/* Reviews slider */}
+                        <div className='overflow-hidden relative'>
+                           <motion.div
+                              className='w-full'
+                              key={currentReview}
+                              initial={{
+                                 opacity: 0,
+                                 x: slideDirection === "right" ? 100 : -100,
+                              }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{
+                                 opacity: 0,
+                                 x: slideDirection === "right" ? -100 : 100,
+                              }}
+                              transition={{ duration: 0.5 }}
+                           >
+                              <Card className='border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
+                                 <CardHeader className='pb-2'>
+                                    <CardTitle className='text-xl font-medium'>
+                                       {reviews[currentReview].name}
+                                    </CardTitle>
+                                    <CardDescription>
+                                       {reviews[currentReview].company}
+                                    </CardDescription>
+                                 </CardHeader>
+                                 <CardContent>
+                                    <p className='text-gray-600 dark:text-gray-300 mb-4 text-lg italic'>
+                                       "{reviews[currentReview].content}"
+                                    </p>
+                                 </CardContent>
+                                 <CardFooter>
+                                    <div className='flex'>
+                                       {[
+                                          ...Array(
+                                             reviews[currentReview].rating
+                                          ),
+                                       ].map((_, i) => (
+                                          <Star
+                                             key={i}
+                                             className='h-5 w-5 fill-yellow-400 text-yellow-400'
+                                          />
+                                       ))}
+                                    </div>
+                                 </CardFooter>
+                              </Card>
+                           </motion.div>
+                        </div>
+
+                        {/* Navigation arrows */}
+                        <div className='flex justify-between mt-6'>
+                           <motion.button
+                              onClick={() => handleReviewChange("prev")}
+                              className='p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors'
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.9 }}
+                              disabled={reviews.length <= 1}
+                           >
+                              <ChevronLeft className='h-6 w-6' />
+                           </motion.button>
+                           <motion.button
+                              onClick={() => handleReviewChange("next")}
+                              className='p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors'
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.9 }}
+                              disabled={reviews.length <= 1}
+                           >
+                              <ChevronRight className='h-6 w-6' />
+                           </motion.button>
+                        </div>
+                     </div>
+                  </div>
+               ) : (
+                  <p className='text-center text-gray-500 dark:text-gray-400'>
+                     No reviews available at the moment.
+                  </p>
+               )}
+            </div>
+         </section>
+
          {/* Contact Section */}
-         <section id='contact' className='py-24 dark:bg-[#0f172a] reveal'>
+         <section
+            id='contact'
+            className='py-24 bg-gray-50 dark:bg-[#111827] reveal'
+         >
             <div className='container max-w-6xl mx-auto px-6 md:px-8'>
                <motion.h2
                   className='text-3xl font-bold mb-16 text-center gradient-text'

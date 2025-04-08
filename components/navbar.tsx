@@ -32,7 +32,7 @@ export default function Navbar() {
          }
 
          // Update active section based on scroll position
-         const sections = ["home", "about", "projects", "skills", "contact"];
+         const sections = ["home", "about", "skills", "reviews", "contact"];
 
          // Check if we're at the top of the page (home section)
          if (window.scrollY < 100) {
@@ -105,8 +105,8 @@ export default function Navbar() {
    const navItems = [
       { name: "Home", id: "home" },
       { name: "About", id: "about" },
-      { name: "Projects", id: "projects" },
       { name: "Skills", id: "skills" },
+      { name: "Reviews", id: "reviews" },
       { name: "Contact", id: "contact" },
    ];
 
