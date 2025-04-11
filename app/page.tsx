@@ -234,10 +234,9 @@ export default function Home() {
                         My journey in tech started with a passion for building
                         robust, scalable backend systems. I've developed skills
                         in Node.js, Express, MongoDB, and RESTful API design.
-                     </p>
-                     <p className='text-gray-600 dark:text-gray-300 text-lg leading-relaxed dark:text-shadow'>
-                        When I'm not coding, you can find me exploring new
-                        backend technologies and participating in hackathons.
+                        I'm also highly adaptable and quick to learn, allowing
+                        me to pick up and work effectively with any new
+                        technology.
                      </p>
                   </motion.div>
                   <motion.div
