@@ -130,8 +130,10 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
                      >
-                        Computer Science student with a passion for building
-                        robust backend systems and solving complex problems.
+                        Computer Science student passionate about designing and
+                        building end-to-end full-stack applications—crafting
+                        intuitive user interfaces, implementing scalable backend
+                        systems, and tackling complex problems.
                      </motion.p>
                      <motion.div
                         className='flex flex-wrap gap-3 mb-10'
@@ -227,16 +229,16 @@ export default function Home() {
                   >
                      <p className='text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed dark:text-shadow'>
                         I'm a Computer Science student at the Technical
-                        University of Cluj-Napoca with a focus on backend
-                        development and server-side technologies.
+                        University of Cluj-Napoca with a focus on full-stack
+                        development—designing server-side APIs and crafting rich
+                        user experiences.
                      </p>
                      <p className='text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed dark:text-shadow'>
-                        My journey in tech started with a passion for building
-                        robust, scalable backend systems. I've developed skills
-                        in Node.js, Express, MongoDB, and RESTful API design.
-                        I'm also highly adaptable and quick to learn, allowing
-                        me to pick up and work effectively with any new
-                        technology.
+                        My journey in tech started with building scalable
+                        backend services using Express, then expanded to
+                        creating dynamic frontends with React and Next.js. I’m
+                        always eager to learn new tools and approaches to solve
+                        complex problems end-to-end.
                      </p>
                   </motion.div>
                   <motion.div
@@ -343,6 +345,58 @@ export default function Home() {
                                  </a>
                               </motion.div>
                            </div>
+                        </CardContent>
+                     </Card>
+                  </motion.div>
+               </div>
+            </div>
+         </section>
+
+         {/* Work Experience Section */}
+         <section
+            id='work-experience'
+            className='py-24 dark:bg-[#0f172a] reveal'
+         >
+            <div className='container max-w-6xl mx-auto px-6 md:px-8'>
+               <motion.h2
+                  className='text-3xl font-bold mb-16 text-center gradient-text'
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+               >
+                  Work Experience
+               </motion.h2>
+               <div className='max-w-3xl mx-auto'>
+                  <motion.div
+                     initial={{ opacity: 0, y: 30 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                     <Card className='border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
+                        <CardHeader>
+                           <div className='flex justify-between items-start'>
+                              <div>
+                                 <CardTitle className='text-xl font-medium'>
+                                    SDE Intern at Amazon, Iași
+                                 </CardTitle>
+                                 <CardDescription>
+                                    Software Development Engineer Intern
+                                 </CardDescription>
+                              </div>
+                              <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-4 py-1 dark:badge-glow'>
+                                 Present
+                              </Badge>
+                           </div>
+                        </CardHeader>
+                        <CardContent>
+                           <ul className='text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed'>
+                              <li>
+                                 Software Development Engineer Intern at Amazon,
+                                 Iași
+                              </li>
+                           </ul>
                         </CardContent>
                      </Card>
                   </motion.div>
