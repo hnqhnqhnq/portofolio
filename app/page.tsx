@@ -122,7 +122,7 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                      >
-                        Backend Developer
+                        Full Stack Developer
                      </motion.h2>
                      <motion.p
                         className='text-gray-600 dark:text-gray-300 mb-10 max-w-md text-lg'
@@ -140,8 +140,8 @@ export default function Home() {
                         animate='show'
                      >
                         <motion.div variants={item}>
-                           <Badge className='bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-4 py-1 rounded-full text-xs dark:badge-glow'>
-                              Backend Enthusiast
+                           <Badge className='bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-4 py-1 rounded-full text-sm dark:badge-glow'>
+                              SDE Intern @ Amazon
                            </Badge>
                         </motion.div>
                      </motion.div>
