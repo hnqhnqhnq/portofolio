@@ -558,6 +558,58 @@ export default function Home() {
                      initial={{ opacity: 0, y: 30 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
+                     transition={{ duration: 0.5, delay: 0.2 }}
+                     whileHover={{ y: -10 }}
+                  >
+                     <Card className='border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
+                        <CardHeader>
+                           <CardTitle className='text-center text-xl font-medium'>
+                              Frontend Development
+                           </CardTitle>
+                        </CardHeader>
+                        <CardContent className='text-center'>
+                           <div className='flex flex-wrap justify-center gap-2'>
+                              <motion.div
+                                 whileHover={{ scale: 1.1 }}
+                                 whileTap={{ scale: 0.95 }}
+                              >
+                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
+                                    React.js
+                                 </Badge>
+                              </motion.div>
+                              <motion.div
+                                 whileHover={{ scale: 1.1 }}
+                                 whileTap={{ scale: 0.95 }}
+                              >
+                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
+                                    Next.js
+                                 </Badge>
+                              </motion.div>
+                              <motion.div
+                                 whileHover={{ scale: 1.1 }}
+                                 whileTap={{ scale: 0.95 }}
+                              >
+                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
+                                    CSS
+                                 </Badge>
+                              </motion.div>
+                              <motion.div
+                                 whileHover={{ scale: 1.1 }}
+                                 whileTap={{ scale: 0.95 }}
+                              >
+                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
+                                    Tailwind
+                                 </Badge>
+                              </motion.div>
+                           </div>
+                        </CardContent>
+                     </Card>
+                  </motion.div>
+
+                  <motion.div
+                     initial={{ opacity: 0, y: 30 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
                      transition={{ duration: 0.5, delay: 0.3 }}
                      whileHover={{ y: -10 }}
                   >
@@ -583,58 +635,6 @@ export default function Home() {
                               >
                                  <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
                                     MongoDB
-                                 </Badge>
-                              </motion.div>
-                           </div>
-                        </CardContent>
-                     </Card>
-                  </motion.div>
-
-                  <motion.div
-                     initial={{ opacity: 0, y: 30 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ duration: 0.5, delay: 0.4 }}
-                     whileHover={{ y: -10 }}
-                  >
-                     <Card className='border-0 shadow-lg rounded-2xl overflow-hidden interactive-card dark:card-highlight'>
-                        <CardHeader>
-                           <CardTitle className='text-center text-xl font-medium'>
-                              Tools
-                           </CardTitle>
-                        </CardHeader>
-                        <CardContent className='text-center'>
-                           <div className='flex flex-wrap justify-center gap-2'>
-                              <motion.div
-                                 whileHover={{ scale: 1.1 }}
-                                 whileTap={{ scale: 0.95 }}
-                              >
-                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
-                                    Git
-                                 </Badge>
-                              </motion.div>
-                              <motion.div
-                                 whileHover={{ scale: 1.1 }}
-                                 whileTap={{ scale: 0.95 }}
-                              >
-                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
-                                    GitHub
-                                 </Badge>
-                              </motion.div>
-                              <motion.div
-                                 whileHover={{ scale: 1.1 }}
-                                 whileTap={{ scale: 0.95 }}
-                              >
-                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
-                                    Firebase
-                                 </Badge>
-                              </motion.div>
-                              <motion.div
-                                 whileHover={{ scale: 1.1 }}
-                                 whileTap={{ scale: 0.95 }}
-                              >
-                                 <Badge className='bg-black dark:bg-[#3b82f6] text-white hover:bg-gray-800 dark:hover:bg-[#2563eb] rounded-full px-4 py-1 dark:badge-glow'>
-                                    Postman
                                  </Badge>
                               </motion.div>
                            </div>

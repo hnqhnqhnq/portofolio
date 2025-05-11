@@ -10,9 +10,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-   title: "Hîncu Ștefan | Backend Developer",
-   description:
-      "Personal portfolio of Hîncu Ștefan, a backend developer specializing in Node.js, Express, and MongoDB.",
+   title: "Hîncu Ștefan | Full Stack Developer",
+   description: "Personal portfolio of Hîncu Ștefan, a full stack developer.",
 };
 
 export default function RootLayout({
