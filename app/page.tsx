@@ -379,7 +379,7 @@ export default function Home() {
                            <div className='flex justify-between items-start'>
                               <div>
                                  <CardTitle className='text-xl font-medium'>
-                                    SDE Intern at Amazon, Iași
+                                    SDE Intern @ Amazon, Iași
                                  </CardTitle>
                                  <CardDescription>
                                     Software Development Engineer Intern
