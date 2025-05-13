@@ -160,8 +160,8 @@ export default function Home() {
                                  .getElementById("skills")
                                  ?.scrollIntoView({ behavior: "smooth" })
                            }
-                           whileHover={{ scale: 1.05 }}
-                           whileTap={{ scale: 0.95 }}
+                           whileHover={{ scale: 1 }}
+                           whileTap={{ scale: 1 }}
                         >
                            View Skills
                         </motion.button>
@@ -169,8 +169,8 @@ export default function Home() {
                            href='/resume.pdf'
                            download
                            className='inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-black dark:border-white text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-900 h-10 px-6 py-2'
-                           whileHover={{ scale: 1.05 }}
-                           whileTap={{ scale: 0.95 }}
+                           whileHover={{ scale: 1 }}
+                           whileTap={{ scale: 1 }}
                         >
                            <Download className='mr-2 h-4 w-4' />
                            Resume
