@@ -122,7 +122,7 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                      >
-                        Full Stack Developer
+                        Full Stack Developer & Computer Science Student
                      </motion.h2>
                      <motion.p
                         className='text-gray-600 dark:text-gray-300 mb-10 max-w-md text-lg'
