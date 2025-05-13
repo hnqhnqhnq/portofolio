@@ -185,7 +185,6 @@ export default function Home() {
                   >
                      <motion.div
                         className='relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-[#1e293b] shadow-xl dark:shadow-[0_0_30px_rgba(59,130,246,0.15)]'
-                        animate={{ y: [0, -10, 0] }}
                         transition={{
                            duration: 6,
                            repeat: Number.POSITIVE_INFINITY,
