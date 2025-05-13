@@ -125,8 +125,8 @@ export default function Navbar() {
             <div className='flex items-center justify-between h-20'>
                <motion.div
                   className='flex-shrink-0'
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1 }}
+                  whileTap={{ scale: 1 }}
                >
                   <button
                      onClick={() => scrollToSection("home")}
@@ -147,8 +147,8 @@ export default function Navbar() {
                               ? "text-black dark:text-white"
                               : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
                         }`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1 }}
+                        whileTap={{ scale: 1 }}
                      >
                         {item.name}
                         {activeSection === item.id && (
@@ -165,8 +165,8 @@ export default function Navbar() {
                         href='/Hincu-Stefan-Resume.pdf'
                         download
                         className='inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 h-10 px-6 py-2'
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1 }}
+                        whileTap={{ scale: 1 }}
                      >
                         <Download className='mr-2 h-4 w-4' />
                         Resume
