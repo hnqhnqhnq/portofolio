@@ -141,11 +141,11 @@ export default function Home() {
                         initial='hidden'
                         animate='show'
                      >
-                        <motion.div variants={item}>
+                        {/* <motion.div variants={item}>
                            <Badge className='bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 px-4 py-1 rounded-full text-sm dark:badge-glow'>
                               SDE Intern @ Amazon
                            </Badge>
-                        </motion.div>
+                        </motion.div> */}
                      </motion.div>
                      <motion.div
                         className='flex gap-4'
@@ -351,7 +351,7 @@ export default function Home() {
             </div>
          </section>
 
-         {/* Work Experience Section */}
+         {/* Work Experience Section
          <section
             id='work-experience'
             className='py-24 dark:bg-[#0f172a] reveal'
@@ -401,7 +401,7 @@ export default function Home() {
                   </motion.div>
                </div>
             </div>
-         </section>
+         </section> */}
 
          {/* Education Section */}
          <section id='education' className='py-24 dark:bg-[#0f172a] reveal'>
