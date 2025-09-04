@@ -351,7 +351,7 @@ export default function Home() {
             </div>
          </section>
 
-         {/* Work Experience Section
+         {/* Work Experience Section */}
          <section
             id='work-experience'
             className='py-24 dark:bg-[#0f172a] reveal'
@@ -401,7 +401,7 @@ export default function Home() {
                   </motion.div>
                </div>
             </div>
-         </section> */}
+         </section>
 
          {/* Education Section */}
          <section id='education' className='py-24 dark:bg-[#0f172a] reveal'>
