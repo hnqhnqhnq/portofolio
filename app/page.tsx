@@ -384,29 +384,27 @@ export default function Home() {
                                     Software Development Engineer Intern
                                  </CardDescription>
                                  <div className='flex flex-wrap gap-2 mt-3'>
-                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                    <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-2 py-1 dark:badge-glow'>
                                        AWS
                                     </Badge>
-                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                    <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-2 py-1 dark:badge-glow'>
                                        Java
                                     </Badge>
-                                    AWS, Java, TypeScript, Node.js, CSS,
-                                    AngularJS
-                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                    <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-2 py-1 dark:badge-glow'>
                                        TypeScript
                                     </Badge>
-                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                    <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-2 py-1 dark:badge-glow'>
                                        Node.js
                                     </Badge>
-                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                    <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-2 py-1 dark:badge-glow'>
                                        CSS
                                     </Badge>
-                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                    <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-2 py-1 dark:badge-glow'>
                                        AngularJS
                                     </Badge>
                                  </div>
                               </div>
-                              <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-4 py-1 dark:badge-glow'>
+                              <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-6 py-1 dark:badge-glow'>
                                  July 2025 - October 2025
                               </Badge>
                            </div>
