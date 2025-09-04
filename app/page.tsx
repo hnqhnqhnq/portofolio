@@ -383,17 +383,62 @@ export default function Home() {
                                  <CardDescription>
                                     Software Development Engineer Intern
                                  </CardDescription>
+                                 <div className='flex flex-wrap gap-2 mt-3'>
+                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                       AWS
+                                    </Badge>
+                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                       Java
+                                    </Badge>
+                                    AWS, Java, TypeScript, Node.js, CSS,
+                                    AngularJS
+                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                       TypeScript
+                                    </Badge>
+                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                       Node.js
+                                    </Badge>
+                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                       CSS
+                                    </Badge>
+                                    <Badge className='bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md'>
+                                       AngularJS
+                                    </Badge>
+                                 </div>
                               </div>
                               <Badge className='bg-black dark:bg-[#3b82f6] text-white rounded-full px-4 py-1 dark:badge-glow'>
-                                 Present
+                                 July 2025 - October 2025
                               </Badge>
                            </div>
                         </CardHeader>
                         <CardContent>
-                           <ul className='text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed'>
-                              <li>
-                                 Software Development Engineer Intern at Amazon,
-                                 Iași
+                           <ul className='space-y-3 text-gray-600 dark:text-gray-300 text-base leading-relaxed'>
+                              <li className='flex items-start'>
+                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mr-3 mt-2 flex-shrink-0'></span>
+                                 Developed secure API Gateway with multiple AWS
+                                 Lambda functions for schema information
+                                 management within a data transportation
+                                 platform.
+                              </li>
+                              <li className='flex items-start'>
+                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mr-3 mt-2 flex-shrink-0'></span>
+                                 Implemented extensible architecture ensuring
+                                 scalable integration of future features.
+                              </li>
+                              <li className='flex items-start'>
+                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mr-3 mt-2 flex-shrink-0'></span>
+                                 Created global deployment pipeline with AWS CDK
+                                 and deployed to production across all regions.
+                              </li>
+                              <li className='flex items-start'>
+                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mr-3 mt-2 flex-shrink-0'></span>
+                                 Built real-time schema monitoring UI to improve
+                                 customer experience and reduce support tickets.
+                              </li>
+                              <li className='flex items-start'>
+                                 <span className='h-1.5 w-1.5 rounded-full bg-black dark:bg-[#3b82f6] mr-3 mt-2 flex-shrink-0'></span>
+                                 Collaborated with customers on design decisions
+                                 to improve platform adoption.
                               </li>
                            </ul>
                         </CardContent>
